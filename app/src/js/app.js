@@ -1,3 +1,8 @@
+const TaskController = require( '../modules/tasker/TaskController.js' );
+const Task = require( '../modules/tasker/Task.js' );
+
+// const TaskList = require( '../modules/tasker/TaskList.js' );
+
 const ID = function() {
   return `_${Math.random().toString( 36 ).substr( 2, 9 )}`;
 };
@@ -46,3 +51,21 @@ console.log( x ); // 1
 console.log( y ); // 2
 console.log( z ); // { a: 3, b: 4 }
 [ 5, 6 ].map( ( m ) => console.log( m ) );
+
+const taskData = [ {
+  id: ID(),
+  title: 'test title 1',
+  description: 'test description 1'
+}, {
+  id: ID(),
+  title: 'test title 2',
+  description: 'test description 2'
+}, {
+
+  id: ID(),
+  title: 'test title 3',
+  description: 'test description 3'
+
+} ];
+window.taskListController = new TaskController( taskData, 'listView' );
+window.task = new Task( taskData[ 1 ] );

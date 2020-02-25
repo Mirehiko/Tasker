@@ -5,16 +5,17 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "lint": "eslint ./app/src/**/*.js",
-    "lint:fix": "eslint ./app/src/**/*.js --fix --color",
+    "lint": "eslint ./app/src --ext .js",
+    "lint:fix": "eslint  ./app/src --ext .js --fix --color",
     "csslint": "stylelint ./app/src/**/*.scss ./app/src/**/*.css",
     "csslint:fix": "stylelint ./app/src/**/*.scss ./app/src/**/*.css --fix --color",
     "tpl": "pug ./app/src/templates/*.pug --out ./app/build --pretty",
     "bts": "tsc ./app/src/**/*.ts --outDir ./app/src/js",
     "dev": "webpack --config development-config.js",
-    "build": "webpack --config production-config.js",
-    "watch": "webpack --config webpack.config.js --watch",
-    "toes5": "babel ./app/src/ --out-dir ./app/dist"
+    "buildjs": "webpack --config production-config.js",
+    "watchjs": "webpack --config webpack.config.js --watch",
+    "toes5": "babel ./app/src/ --out-dir ./app/dist",
+    "build": "npm run tpl && npm run buildjs && gulp build"
   },
   "browserslist": [
     ">0.1%",

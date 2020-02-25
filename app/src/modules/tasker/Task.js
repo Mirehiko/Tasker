@@ -1,15 +1,10 @@
+/* eslint-disable class-methods-use-this */
 class Task {
-  constructor() {}
-
-  static create(data) {
-    // send query to create task
+  constructor( data ) {
+    this.data = data;
   }
 
-  static update(data) {
-    // send query to update task
-  }
-
-  static remove(task_id) {
-    // send query to remove task
-  }
+  draw() {}
 }
+
+module.exports = Task;
